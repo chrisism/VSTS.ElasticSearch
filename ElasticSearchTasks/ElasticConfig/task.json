@@ -1,0 +1,183 @@
+{
+	"id": "20cef4f0-4185-48b0-ae30-2fadcf7f5546",
+	"name": "ConfigureElastic",
+	"friendlyName": "ElasticSearch - Configuration",
+	"description": "Configure an ElasticSearch instance",
+	"author": "Olbico",
+	"helpMarkDown": "",
+	"category": "Deploy",
+	"visibility": [
+		"Release"
+	],
+	"demands": [ ],
+	"version": {
+		"Major": "1",
+		"Minor": "1",
+		"Patch": "2"
+	},
+	"minimumAgentVersion": "1.83.0",
+	"instanceNameFormat": "Configure ElasticSearch",
+	"groups": [
+		{
+			"name": "advanced",
+			"displayName": "Advanced settings",
+			"isExpanded": false
+		}
+	],
+	"inputs": [
+		{
+			"name": "esPath",
+			"type": "filePath",
+			"label": "ElasticSearch path",
+			"defaultValue": "",
+			"required": true,
+			"helpMarkDown": "The location of where ElasticSearch is installed. Example: C:\\ProgramData\\chocolatey\\lib\\elastic\\tools\\elasticsearch-1.5.1"
+		},
+		{
+			"name": "serviceName",
+			"type": "string",
+			"label": "Service name",
+			"defaultValue": "elasticsearch-service-x64",
+			"required": true,
+			"helpMarkDown": "The name of the service instance of ElasticSearch"
+		},
+		{
+			"name": "clusterName",
+			"type": "string",
+			"label": "Cluster name",
+			"defaultValue": "elasticsearch",
+			"required": true,
+			"helpMarkDown": "The name of the cluster"
+		},
+		{
+			"name": "nodeName",
+			"type": "string",
+			"label": "Node name",
+			"defaultValue": "",
+			"required": false,
+			"helpMarkDown": "The name for the node"
+		},
+		{
+			"name": "isMaster",
+			"type": "boolean",
+			"label": "Master node",
+			"defaultValue": "True",
+			"required": true,
+			"helpMarkDown": "Allow this node to be eligible as a master node (enabled by default)"
+		},
+		{
+			"name": "dataStored",
+			"type": "boolean",
+			"label": "Store data",
+			"defaultValue": "True",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Allow this node to store data (enabled by default)"
+		},
+		{
+			"name": "dataPath",
+			"type": "string",
+			"label": "Data folder",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Path to directory where to store index data allocated for this node."
+		},
+		{
+			"name": "amountShards",
+			"type": "string",
+			"label": "Amount of shards",
+			"defaultValue": "5",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Set the number of shards (splits) of an index"
+		},
+		{
+			"name": "amountReplicas",
+			"type": "string",
+			"label": "Amount of replicas",
+			"defaultValue": "1",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Set the number of replicas (additional copies) of an index"
+		},
+		{
+			"name": "hostIp",
+			"type": "string",
+			"label": "IP address",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Elasticsearch, by default, binds itself to the 0.0.0.0 address, and listens on port [9200-9300] for HTTP traffic and on port [9300-9400] for node-to-node communication. (the range means that if the port is busy, it will automatically try the next port)."
+		},
+		{
+			"name": "httpPort",
+			"type": "string",
+			"label": "Port",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Elasticsearch, by default, binds itself to the 0.0.0.0 address, and listens on port [9200-9300] for HTTP traffic and on port [9300-9400] for node-to-node communication. (the range means that if the port is busy, it will automatically try the next port)."
+		},
+		{
+			"name": "tcpPort",
+			"type": "string",
+			"label": "TCP Port",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Elasticsearch, by default, binds itself to the 0.0.0.0 address, and listens on port [9200-9300] for HTTP traffic and on port [9300-9400] for node-to-node communication. (the range means that if the port is busy, it will automatically try the next port)."
+		},
+		{
+			"name": "useCompression",
+			"type": "boolean",
+			"label": "Use HTTP compression",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Use http compression server side."
+		},
+		{
+			"name": "unicasthosts",
+			"type": "string",
+			"label": "Unicast hosts",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Other hosts ElasticSearch should check to discover more nodes. Example: \"host1\", \"host2:port"
+		},
+		{
+			"name": "minimumMasters",
+			"type": "string",
+			"label": "Minimum amount of master nodes",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "This setting tells Elasticsearch to not elect a master unless there are enough master-eligible nodes available. Only then will an election take place. This setting should always be configured to a quorum (majority) of your master-eligible nodes. A quorum is (number of master-eligible nodes / 2) + 1"
+		},
+		{
+			"name": "rejoinMasterGone",
+			"type": "boolean",
+			"label": "Rejoin when Master gone",
+			"defaultValue": "",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Try to rejoin first when the master is gone, before declaring self as master"
+		},
+		{
+			"name": "useMulticast",
+			"type": "boolean",
+			"label": "Enable multicast",
+			"defaultValue": "False",
+			"required": false,
+			"groupName": "advanced",
+			"helpMarkDown": "Do not user in production!"
+		}
+	],
+	"execution": {
+		"PowerShell": {
+			"target": "$(currentDirectory)\\configureelastic.ps1",
+			"argumentFormat": "",
+			"workingDirectory": "$(currentDirectory)"
+		}
+	}
+}

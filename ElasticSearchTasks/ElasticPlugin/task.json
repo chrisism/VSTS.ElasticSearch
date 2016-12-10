@@ -1,0 +1,63 @@
+{
+	"id": "cc551c4f-7aa6-4344-9e4f-3ebe6af02cb2",
+	"name": "InstallEsPlugin",
+	"friendlyName": "ElasticSearch - Install Plugin",
+	"description": "Install a plugin in ElasticSearch",
+	"author": "Olbico",
+	"helpMarkDown": "",
+	"category": "Deploy",
+	"visibility": [
+		"Release"
+	],
+	"demands": [ ],
+	"version": {
+		"Major": "1",
+		"Minor": "0",
+		"Patch": "4"
+	},
+	"minimumAgentVersion": "1.83.0",
+	"instanceNameFormat": "Install plugin $(pluginName) $(pluginVersion)",
+	"groups": [
+	],
+	"inputs": [
+		{
+			"name": "esPath",
+			"type": "filePath",
+			"label": "ElasticSearch path",
+			"defaultValue": "",
+			"required": true,
+			"helpMarkDown": "The location of where ElasticSearch is installed. Example: C:\\ProgramData\\chocolatey\\lib\\elastic\\tools\\elasticsearch-1.5.1"
+		},
+		{
+			"name": "pluginName",
+			"type": "string",
+			"label": "Plugin name",
+			"defaultValue": "",
+			"required": true,
+			"helpMarkDown": "The name of the plugin"
+		},
+		{
+			"name": "pluginVersion",
+			"type": "string",
+			"label": "Version",
+			"defaultValue": "",
+			"required": false,
+			"helpMarkDown": "Version of the plugin. Leave empty if latests."
+		},
+		{
+			"name": "pluginUrl",
+			"type": "string",
+			"label": "Custom URL",
+			"defaultValue": "",
+			"required": false,
+			"helpMarkDown": "A plugin can also be downloaded directly from a custom location by specifying the URL. Leave empty if using default online location."
+		}
+	],
+	"execution": {
+		"PowerShell": {
+			"target": "$(currentDirectory)\\installplugin.ps1",
+			"argumentFormat": "",
+			"workingDirectory": "$(currentDirectory)"
+		}
+	}
+}
