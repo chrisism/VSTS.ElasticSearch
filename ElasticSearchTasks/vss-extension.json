@@ -1,7 +1,7 @@
 {
 	"manifestVersion": 1,
 	"id": "jungit-elastic",
-	"version": "1.1.3",
+	"version": "1.1.4",
 	"name": "ElasticSearch Toolbox",
 	"description": "With these tasks you can configure your ElasticSearch cluster by altering the configuration file. Also supports installing new plugins.",
 	"publisher": "jungeriusit",
@@ -31,6 +31,12 @@
 		"uri": "https://github.com/chrisism/VSTS.ElasticSearch"
 	},
 	"screenshots": [
+		{
+			"path": "screenshot-01.jpg"
+		},
+		{
+			"path": "screenshot-02.jpg"
+		}
 	],
 	"branding": {
 		"color": "rgb(157, 140, 255)",
