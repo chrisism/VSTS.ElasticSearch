@@ -46,6 +46,7 @@
     <Content Include="ElasticPlugin\installplugin.ps1" />
     <Content Include="ElasticPlugin\task.json" />
     <None Include="gruntfile.js" />
+    <None Include="license.md" />
     <None Include="package.json" />
     <Content Include="overview.md" />
     <None Include="vss-extension.json" />

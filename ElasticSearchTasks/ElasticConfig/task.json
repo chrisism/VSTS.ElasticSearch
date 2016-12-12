@@ -3,17 +3,17 @@
 	"name": "ConfigureElastic",
 	"friendlyName": "ElasticSearch - Configuration",
 	"description": "Configure an ElasticSearch instance",
-	"author": "Olbico",
+	"author": "Jungerius IT",
 	"helpMarkDown": "",
 	"category": "Deploy",
 	"visibility": [
 		"Release"
 	],
-	"demands": [ ],
+	"demands": [],
 	"version": {
 		"Major": "1",
 		"Minor": "1",
-		"Patch": "2"
+		"Patch": "3"
 	},
 	"minimumAgentVersion": "1.83.0",
 	"instanceNameFormat": "Configure ElasticSearch",

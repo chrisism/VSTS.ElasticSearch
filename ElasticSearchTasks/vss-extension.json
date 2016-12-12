@@ -1,66 +1,85 @@
 {
-  "manifestVersion": 1,
-  "id": "sample-extension",
-  "version": "0.1.0",
-  "name": "Sample Extension",
-  "scopes": [ "vso.work", "vso.work_write" ],
-  "description": "This is the extension file from the contributions guide example on GitHub.  Feel free to add or remove sections as you see fit.",
-  "baseUri": "https://localhost",
-  "publisher": "fabrikam",
-  "public": false,
-  "icons": {
-    "default": "img/logo.png"
-  },
-  "targets": [
-    {
-      "id": "Microsoft.VisualStudio.Services"
-    }
-  ],
-  "tags": [
-    "Sample"
-  ],
-  "links": {
-    "home": {
-      "uri": "https://bit.ly"
-    },
-    "getstarted": {
-      "uri": "https://bit.ly"
-    },
-    "learn": {
-      "uri": "https://bit.ly"
-    },
-    "support": {
-      "uri": "https://bit.ly"
-    },
-    "repository": {
-      "uri": "https://bit.ly"
-    },
-    "issues": {
-      "uri": "https://bit.ly"
-    }
-  },
-  "branding": {
-    "color": "rgb(220, 235, 252)",
-    "theme": "light"
-  },
-  "files": [
-    {
-      "path": "ExampleTask"
-    }
-  ],
-  "categories": [
-    "Build and release"
-  ],
-  "contributions": [
-    {
-      "id": "example-task",
-      "targets": [
-        "ms.vss-distributed-task.tasks"
-      ],
-      "type": "ms.vss-distributed-task.task",
-      "properties": {
-        "name": "Example Task"
-      }
-    }
-  ]
+	"manifestVersion": 1,
+	"id": "jungit-elastic",
+	"version": "1.1.3",
+	"name": "ElasticSearch Toolbox",
+	"description": "With these tasks you can configure your ElasticSearch cluster by altering the configuration file. Also supports installing new plugins.",
+	"publisher": "jungeriusit",
+	"baseUri": "https://github.com/chrisism/",
+	"tags": [
+		"elastic",
+		"elasticsearch",
+		"search",
+		"lucene"
+	],
+	"links": {
+		"home": {
+			"uri": "https://github.com/chrisism/VSTS.ElasticSearch"
+		},
+		"learn": {
+			"uri": "https://github.com/chrisism/VSTS.ElasticSearch"
+		},
+		"support": {
+			"uri": "https://github.com/chrisism/VSTS.ElasticSearch/issues"
+		},
+		"repository": {
+			"uri": "https://github.com/chrisism/VSTS.ElasticSearch"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"uri": "https://github.com/chrisism/VSTS.ElasticSearch"
+	},
+	"screenshots": [
+	],
+	"branding": {
+		"color": "rgb(157, 140, 255)",
+		"theme": "light"
+	},
+	"scopes": [],
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services"
+		}
+	],
+	"categories": [
+		"Build and release"
+	],
+	"icons": {
+		"default": "img/logo.png"
+	},
+	"files": [
+		{ "path": "ElasticConfig" },
+		{ "path": "ElasticPlugin" }
+	],
+	"content": {
+		"details": {
+			"path": "overview.md"
+		},
+		"license": {
+			"path": "license.md"
+		}
+	},
+	"contributions": [
+		{
+			"id": "jungit-elastic-config",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"type": "ms.vss-distributed-task.task",
+			"properties": {
+				"name": "ElasticConfig"
+			}
+		},
+		{
+			"id": "jungit-elastic-plugin",
+			"targets": [
+				"ms.vss-distributed-task.tasks"
+			],
+			"type": "ms.vss-distributed-task.task",
+			"properties": {
+				"name": "ElasticPlugin"
+			}
+		}
+	]
 }
